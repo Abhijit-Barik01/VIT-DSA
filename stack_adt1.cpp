@@ -1,7 +1,7 @@
 
 #include  <iostream>
 using namespace std;
-#define SIZE 20
+#define SIZE 30
 void push(string);
 void  pop();
 void display();
@@ -20,13 +20,13 @@ int main(){
   
    while(1){
       cout<<"\n"<<"***** MENU *****"<<"\n"<<endl;
-      cout<<"1. Push\n2. Pop\n3. Display\n4. Peek Last Submission\n5. Search For submission\n6. First 10 student\n7. Exit"<<endl;
+      cout<<"1. Push\n2. Pop\n3. Display\n4. Peek Last Submission\n5. Search For submission\n6. First 10 students submission\n7. Exit"<<endl;
       cout<<"\nEnter your choice:" <<endl;
       cin>>choice;
       switch(choice){
 
          case 1:
-               cout<<"Enter the value to be insert:";
+               cout<<"Enter the registration no. of student:";
                cin>>v;
 				//To avoid repetation of same data entry
                if(top!=-1){
@@ -43,6 +43,7 @@ int main(){
 	         }
 	         else{
 				push(v);
+				cin.ignore();
 				}
             
                break;
@@ -58,12 +59,12 @@ int main(){
          		peek();
          		break;
         case 5: 
-        		cout<<"Enter the reg no of student who submitted assignment or not:"<<endl;
+        		cout<<"Enter the Register number of a student to check they are submitted assignment or not:"<<endl;
         		cin>>s;
         		submission(s);
         		break;
         case 6:
-        		cout<<"THE REGISTER NUMBER OF FIRST 10 STUDENTS WHO SUBMITTES FIRST"<<endl;
+        		cout<<"Register number of the ten students who submitted first"<<endl;
         		firstten();
         		break;
         		
@@ -138,9 +139,9 @@ int main(){
       	cout<<"NOT SUBMITTED YET"<<endl;
    }
    void firstten(){
-   	for(int i=0;i<10;i++){
-   		cout<<stack[i]<<"---";
-	   }
-	   
+	   while(top>=10){
+	   	pop();
+		   }
+		   display();
    }
 
